@@ -1,0 +1,49 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+output.log
+
+# Build artifacts
+dist/
+build/
+coverage/
+
+# Database & Cache
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.pid
+*.seed
+*.seed.js
+*.tgz
+dump.rdb
+*.log
+
+# IDE & System files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Dependency & Package Managers
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
