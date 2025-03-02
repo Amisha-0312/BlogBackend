@@ -1,4 +1,5 @@
 require('dotenv').config();
+// const cors = require("cors");
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
@@ -10,7 +11,15 @@ const path = require('path');
 
 const app = express();
 const port = 8000;
+// app.use(cors()); // Enables CORS for all origins
 
+// ✅ Allow CORS for specific frontend origin (Optional)
+const cors = require("cors");
+app.use(cors({
+    origin: "http://127.0.0.1:5500", // Allow frontend origin
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true
+}));
 // ✅ Middleware
 app.use(express.json());
 
@@ -110,11 +119,11 @@ app.post('/upload', upload.single('image'), async (req, res) => {
     }
 
     try {
-        // Upload image to Cloudinary
+       
         const result = await cloudinary.uploader.upload(req.file.path);
-        fs.unlinkSync(req.file.path); // Delete local file after upload
+        fs.unlinkSync(req.file.path); 
 
-        // Save post details in MongoDB
+       
         const newPost = new Post({
             id: uuidv4(),
             username,
